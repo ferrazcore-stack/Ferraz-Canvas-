@@ -4,11 +4,11 @@
 **Repositório:** `ferrazcore-stack/Ferraz-Canvas-`  
 **Branch auditada:** `audit/revisao-mestre-inicial`  
 **Base de comparação:** requisitos já explicados pela usuária em conversas anteriores + arquivos e código atualmente existentes nesta branch.  
-**Status:** diagnóstico funcional; não representa implementação concluída nem teste de build.
+**Status:** auditoria funcional atualizada após a primeira implementação dos editores; build e testes ainda não verificados.
 
 ## 1. Conclusão executiva
 
-A branch atual NÃO entrega o produto que a usuária precisa. Ela contém uma tela inicial para cadastrar cartões de projetos e marcar uma versão numérica, mas não possui as ferramentas reais de desenho, orçamento, paginação/plano de corte ou prancha técnica. A auditoria anterior foi insuficiente como auditoria de produto: identificou a falta de aplicação na `main`, mas o protótipo criado ficou limitado a uma vitrine de projetos.
+A branch já não está limitada à listagem: foi implementada uma primeira camada editável de desenho esquemático, plano de corte preliminar, proposta, prancha, comparativo, histórico e prévia imprimível. Ainda NÃO entrega o produto completo exigido; é uma implementação inicial e não validada por build/testes. A auditoria anterior identificou corretamente a ausência de aplicação na `main`, mas o primeiro protótipo era apenas uma vitrine de projetos.
 
 O Canvas deve ser tratado como uma **ferramenta independente de criação visual e técnica**, e não como uma simples tela de cadastro nem como o sistema operacional completo de gestão de uma marmoraria. Deve permitir criar os documentos e desenhos, editá-los, revisar medidas, visualizar o resultado e exportar arquivos utilizáveis.
 
@@ -156,3 +156,27 @@ A auditoria comparou os requisitos recuperados das conversas e o conteúdo acess
 **Status do produto: NÃO PRONTO para o uso pretendido.**  
 **Status do protótipo: estrutura inicial de navegação/listagem, insuficiente para desenhar, orçar, paginar chapas ou montar pranchas.**  
 **Próxima ação técnica: implementar os módulos funcionais acima nesta branch isolada, começando pelo editor de desenho técnico e pelo modelo de dados compartilhado; validar cada entrega com testes antes de qualquer merge ou implantação.**
+
+
+## 9. Atualização após a primeira implementação funcional (27/10/2026)
+
+Implementado nesta branch:
+- Editor inicial de desenho técnico com lista de peças, dimensões, quantidades e espessura.
+- Plano de corte preliminar por faixas, com chapa, perda configurável, quantidade posicionada/não posicionada e aproveitamento estimado.
+- Proposta com ambientes, itens/serviços, quantidade, valor unitário, desconto por ambiente e total estimado.
+- Campos iniciais para prancha, comparativo de fornecedores e trabalho livre.
+- Prévia de documento com fluxo de impressão do navegador para “Salvar como PDF”.
+- Histórico de revisões com restauração como nova revisão.
+- Backup de projeto em JSON e salvamento local automático.
+
+Limitações que continuam abertas:
+- Nenhum build/teste foi executado e confirmado nesta etapa.
+- Plano de corte é heurístico por faixas: não faz nesting otimizado, rotação automática, análise de veios/defeitos, simulação real do disco nem geração CNC.
+- Desenho não é CAD completo: sem recortes complexos, cotas gráficas editáveis, vistas/cortes completos ou DXF.
+- Prancha ainda não permite posicionar/redimensionar livremente os elementos.
+- Proposta ainda não separa formalmente campos internos e externos, nem implementa MFC, instalação, frete, impostos ou todas as regras comerciais.
+- PDF depende do diálogo de impressão do navegador e precisa ser verificado visualmente; não foi validado como exportação técnica de produção.
+- Salvamento permanece no navegador, sem nuvem, sincronização ou backup automático.
+- Não há autenticação, integração Dots/DOTS ou implantação.
+
+**Veredito atualizado:** protótipo com editores iniciais em construção; NÃO PRONTO para fabricação, uso comercial definitivo ou dados reais. Próximo bloqueio obrigatório: instalar dependências e passar build/QA; depois evoluir a precisão do desenho/plano de corte e a composição de prancha.
