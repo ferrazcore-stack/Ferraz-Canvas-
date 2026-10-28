@@ -1,14 +1,19 @@
 # FERRAZ Canvas
 
-Aplicativo independente para organizar trabalhos visuais e técnicos da FERRAZ, com foco em clareza, responsividade e preservação de versões.
+Ferramenta independente de criação visual e técnica. Esta branch contém um **protótipo funcional inicial**, ainda não pronto para fabricação, uso comercial definitivo ou dados reais.
+
+## Ferramentas iniciadas
+- **Desenho técnico:** cadastro de peças, dimensões, quantidades, material e espessura, com esquema visual simples.
+- **Plano de corte:** medidas da chapa, perda de corte configurável, peças, paginação preliminar por faixas e estimativa de aproveitamento.
+- **Proposta comercial:** itens/serviços por ambiente, quantidade, preço unitário, desconto simples e total estimado.
+- **Prancha:** dados básicos e prévia para impressão.
+- **Comparativo de fornecedores** e **trabalho livre**.
+- **Histórico local de revisões**, restauração como nova revisão e backup JSON.
 
 ## Documentação
 - [Especificação mestre](docs/ESPECIFICACAO-MESTRE.md)
-- [Auditoria inicial](docs/AUDITORIA.md)
+- [Auditoria funcional revisada](docs/AUDITORIA.md)
 - [Plano técnico](docs/PLANO-TECNICO.md)
-
-## Estado atual
-Esta branch contém a base documental e o protótipo inicial. Não é uma versão pronta para dados reais e não foi publicada.
 
 ## Executar localmente
 Requer Node.js LTS e npm.
@@ -18,7 +23,18 @@ npm install
 npm run dev
 ```
 
-Validar build com `npm run build`.
+Verifique o build antes de usar:
+```bash
+npm run build
+```
 
-## Limitação importante
-O protótipo usa armazenamento local do navegador. Não oferece sincronização entre dispositivos, autenticação, backup remoto nem recuperação garantida. Não usar com dados sensíveis ou em produção antes de implementar e testar armazenamento persistente, segurança e exportação.
+## Limites importantes
+- O projeto salva no armazenamento local do navegador. Não há sincronização, login, armazenamento remoto ou backup automático.
+- O plano de corte usa uma heurística retangular por faixas; não é nesting industrial nem saída CNC e não considera veio, defeitos, rotação automática ou todas as restrições de corte.
+- O desenho não é um CAD completo: não há cotas gráficas editáveis, recortes complexos ou DXF.
+- A prancha ainda não permite posicionar e redimensionar livremente todos os elementos.
+- A proposta não implementa todas as regras comerciais, MFC, instalação/frete/impostos ou separação completa de campos internos e externos.
+- A prévia PDF depende de “Imprimir > Salvar como PDF” do navegador; o arquivo final ainda precisa de inspeção visual.
+- Build e testes automatizados ainda precisam ser executados e confirmados. Não considerar este protótipo validado para produção.
+
+Nenhuma publicação em produção ou serviço pago deve ser ativado sem autorização expressa.
